@@ -43,7 +43,15 @@ let topMovies = [
     res.json(topMovies);
   });
   
+
   
+  
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('An error was encountered!');
+  });
+
+
 
   // listen for requests
   app.listen(8080, () => {
